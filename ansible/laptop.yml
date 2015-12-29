@@ -3,7 +3,7 @@
   vars:
     user: ricardo
     user_home: /home/{{ user }}
-    ubuntu_release: trusty
+    ubuntu_release: wily
   roles:
     - console
     - desktop
