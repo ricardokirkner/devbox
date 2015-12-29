@@ -1,0 +1,5 @@
+- name: enable multiarch support
+  command: "dpkg --add-architecture i386"
+
+- name: install skype
+  apt: name=skype state=present update_cache=yes

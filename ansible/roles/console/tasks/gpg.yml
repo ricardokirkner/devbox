@@ -1,0 +1,2 @@
+- name: install gpg
+  apt: name=gnupg state=present

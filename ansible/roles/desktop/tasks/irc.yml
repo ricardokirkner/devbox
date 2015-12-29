@@ -1,0 +1,2 @@
+- name: install irc client
+  apt: name=hexchat state=present

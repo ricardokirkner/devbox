@@ -1,0 +1,9 @@
+---
+- hosts: all
+  vars:
+    user: ricardo
+    user_home: /home/{{ user }}
+    ubuntu_release: trusty
+  roles:
+    - console
+    - desktop

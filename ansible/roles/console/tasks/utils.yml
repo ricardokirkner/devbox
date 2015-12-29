@@ -1,0 +1,30 @@
+- name: install http utilities
+  apt: name={{ item }} state=present
+  with_items:
+    - curl
+    - wget
+
+- name: install system utilities
+  apt: name={{ item }} state=present
+  with_items:
+    - less
+    - unzip
+    - htop
+    - tree
+    - lm-sensors
+
+- name: install network utilities
+  apt: name={{ item }} state=present
+    - iputils-ping
+    - telnet
+    - mtr
+    - traceroute
+    - iftop
+    - nmap
+    - tcpdump
+
+- name: install laptop utilities
+  apt: name={{ item }} state=present
+  with_items:
+    - powertop
+    - laptop-mode-tools

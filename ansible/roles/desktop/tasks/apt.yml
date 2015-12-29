@@ -1,0 +1,27 @@
+- name: ensure apt cache is up to date
+  apt: cache_valid_time=3600 update_cache=yes
+
+- name: ensure packages are up to date
+  apt: upgrade=safe
+
+- name: add extras repository
+  apt_repository: "repo='{{ item }}' state=present update_cache=yes"
+  with_items:
+    - "deb http://extras.ubuntu.com/ubuntu {{ ansible_distribution_release }} main"
+    - "deb-src http://extras.ubuntu.com/ubuntu {{ ansible_distribution_release }} main"
+
+- name: add partner repository
+  apt_repository: "repo='{{ item }}' state=present update_cache=yes"
+  with_items:
+    - "deb http://archive.canonical.com/ubuntu {{ ansible_distribution_release }} partner"
+    - "deb-src http://archive.canonical.com/ubuntu {{ ansible_distribution_release }} partner"
+
+- name: add multiverse repository
+  apt_repository: "repo='{{ item }}' state=present update_cache=yes"
+  with_items:
+    - "deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }} multiverse"
+    - "deb-src http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }} multiverse"
+    - "deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-updates multiverse"
+    - "deb-src http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-updates multiverse"
+    - "deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-security multiverse"
+    - "deb-src http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-security multiverse"

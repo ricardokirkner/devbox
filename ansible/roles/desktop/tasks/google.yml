@@ -1,0 +1,10 @@
+---
+vars:
+  hangout_url_deb: "https://dl.google.com/linux/direct/google-talkplugin_current_amd64.deb"
+
+tasks:
+  - name: download google hangouts plugin
+    get_url: url={{ hangout_url_deb }} dest={{ hangout_tmp_deb }}
+
+  - name: install google hangouts plugin
+    apt: deb={{ hangout_tmp_deb }}

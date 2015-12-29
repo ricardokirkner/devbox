@@ -1,0 +1,5 @@
+- name: install video player
+  apt: name={{ item }} state=present
+  with_items:
+    - mplayer
+    - vlc

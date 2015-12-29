@@ -1,0 +1,14 @@
+- include: apt.yml
+#- include: docker.yml
+- include: gpg.yml
+- include: irc.yml
+- include: lxd.yml
+- include: python.yml
+- include: ssh.yml
+- include: sudo.yml
+- include: tmux.yml
+- include: utils.yml
+- include: vcs.yml
+- include: vim.yml
+- include: wifi.yml
+- include: zsh.yml

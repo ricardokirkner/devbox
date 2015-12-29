@@ -1,0 +1,2 @@
+- name: install media codecs
+  apt: name=ubuntu-restricted-extras state=present

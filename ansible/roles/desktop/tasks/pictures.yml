@@ -1,0 +1,5 @@
+- name: install digikam
+  apt: name=digikam state=present
+
+- name: install gimp
+  apt: name=gimp state=present

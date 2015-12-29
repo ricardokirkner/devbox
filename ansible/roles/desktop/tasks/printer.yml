@@ -1,0 +1,11 @@
+- name: install printer
+  apt: name={{ item }} state=present
+  with_items:
+    - cups
+    - cups-pdf
+    - hplip
+
+- name: install scanner
+  apt: name={{ item }} state=present
+  with_items:
+    - simple-scan

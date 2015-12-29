@@ -1,0 +1,13 @@
+---
+vars:
+  language: "en_US"
+  lang: "{{ language }}.UTF-8"
+
+handlers:
+  - name: update lang
+    command: dpkg-reconfigure --frontend noninteractive locales
+
+tasks:
+  - name: set default locale to {{ lang }}
+    copy: dest=/etc/default/locale content="LANG={{ lang }}{{'\n'}}LANGUAGE={{ language }}{{'\n'}}"
+    notify: update lang

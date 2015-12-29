@@ -1,0 +1,2 @@
+- name: install music player
+  apt: name=clementine state=present

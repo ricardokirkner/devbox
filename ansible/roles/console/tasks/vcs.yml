@@ -1,0 +1,8 @@
+- name: install git
+  apt: name=git state=present
+
+- name: install bzr
+  apt: name=bzr state=present
+
+- name: install git frontend
+  apt: name=tig state=present

@@ -1,0 +1,8 @@
+- name: add lxd ppa
+  apt_repository: repo=ppa:ubuntu-lxc/lxd-stable state=present update_cache=yes
+
+- name: install lxd
+  apt: name=lxd state=present
+
+- name: add user to lxd group
+  user: name={{ user }} groups=lxd append=yes

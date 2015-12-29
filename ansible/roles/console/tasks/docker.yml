@@ -1,0 +1,23 @@
+---
+vars:
+  docker_repo_key: 58118E89F3A912897C070ADBF76221572C52609D
+
+tasks:
+  - name: get current kernel version
+    command: uname -r
+    register: os_uname
+
+  - name: add gpg key
+    command: apt-key adv --keyserver keyserver.ubuntu.com --recv-keys {{ docker_repo_key }}
+
+  - name: add docker repo
+    apt_repository: "repo='https://apt.dockerproject.org/repo ubuntu-{{ ubuntu_release }} main' state=present update_cache=yes"
+
+  - name: install docker and kernel packages
+    apt: name={{ item }} state=present
+    with_items:
+      - linux-image-extra-{{ os_uname.stdout }}
+      - docker-engine
+
+  - name: ensure docker is started at boot
+    service: name=docker state=started enabled=yes

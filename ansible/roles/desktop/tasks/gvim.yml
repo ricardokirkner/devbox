@@ -1,0 +1,5 @@
+- name: install vim gui
+  apt: name={{ item }} state=present
+  with_items:
+    - vim-gtk
+    - vim-gnome

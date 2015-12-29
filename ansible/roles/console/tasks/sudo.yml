@@ -1,0 +1,8 @@
+- name: install sudo
+  apt: name=sudo state=present
+
+- name: add wheel group
+  group: name=wheel state=present
+
+- name: add user to wheel group
+  user: name={{ user  }} groups=wheel append=yes

@@ -1,0 +1,18 @@
+- name: clone prezto
+  git:
+    repo: https://github.com/sorin-ionescu/prezto.git
+    dest: "{{ user_home }}/.zprezto"
+    recursive: yes
+
+- name: install zprezto
+  file:
+    src: "{{ user_home }}/.zprezto/runcoms/{{ item }}"
+    dest: "{{ user_home }}/.{{ item }}"
+    state: link
+  with_items:
+    - zlogin
+    - zlogout
+    - zpreztorc
+    - zprofile
+    - zshenv
+    - zshrc

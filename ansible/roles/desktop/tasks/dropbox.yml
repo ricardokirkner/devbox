@@ -1,0 +1,2 @@
+- name: install dropbox
+  apt: name=nautilus-dropbox state=present
